@@ -11,12 +11,9 @@ function WeatherDisplay({ city_name }) {
       );
       const weatherData = await response.json();
       setWeatherNow(weatherData.data[0]);
-      console.log(weatherData.data);
     }
     getWeather(weatherNow);
   }, [city_name]);
-
-  // Add an if statement to check cloud cover
 
   let cloudCover;
   if (weatherNow.clouds < 50) {
@@ -40,10 +37,10 @@ function WeatherDisplay({ city_name }) {
       <h2>{Math.floor(weatherNow.temp)} °C </h2>
       <h3>Chance of rain: {Math.floor(weatherNow.precip)} %</h3>
       <div className="weatherStuff">
-        <p>Clouds: {cloudCover} </p>
+        <p>Clouds: {cloudCover}</p>
         <p>Humidity: {weatherNow.rh} %</p>
         <p>
-          Wind speed:
+          Wind speed: {""}
           {weatherNow.wind_spd ? weatherNow.wind_spd.toFixed(1) : "N/A"} mp/h
         </p>
         {/* make colours turn diffent colours according to the index from "low to "Very High */}
