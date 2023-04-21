@@ -1,18 +1,18 @@
 import { useEffect, useState } from "react";
 
-function WeatherDisplay({ city_name }) {
+function WeatherDisplay({ cityName }) {
   const [weatherNow, setWeatherNow] = useState({});
 
   useEffect(() => {
-    async function getWeather() {
+    async function getWeather({cityName}) {
       const response = await fetch(
-        `http://api.weatherbit.io/v2.0/current?city=${city_name}&key=ffc9d5a9b44b42e88249b54818508ef8`
+        `http://api.weatherbit.io/v2.0/current?city=${cityName}&key=ffc9d5a9b44b42e88249b54818508ef8`
       );
       const weatherData = await response.json();
       setWeatherNow(weatherData.data[0]);
     }
     getWeather();
-  }, [city_name]);
+  }, [cityName]);
 
   // Add an if statement to check cloud cover
   let cloudCover = weatherNow.clouds;

@@ -9,13 +9,14 @@
 
 import React from 'react';
 
-function SearchBar() {
+function SearchBar( {handleInput, value}) {
   return (
     <div>
-      <input type="text" placeholder="I want to check the weather in..." />
+      <input type="text" placeholder="I want to check the weather in..." onChange={handleInput} value={value} />
       <button type="submit">Search</button>
     </div>
   );
 }
 
 export default SearchBar;
+

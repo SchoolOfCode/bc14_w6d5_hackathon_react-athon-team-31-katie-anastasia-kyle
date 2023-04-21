@@ -9,21 +9,17 @@
 //
 
 import React from "react";
-import { useState } from "react";
-const [favouritesList, SetFavouritesList] = useState([]);
 
-function AddToFavourites(props) {
-  function handleAddToFavorites() {
-    console.log("Item added to favorites!");
-    props.SetFavouritesList([...props.favouritesList, props.newFavouriteItem]);
-  }
+//const [favouritesList, SetFavouritesList] = useState([]);
+
+function AddToFavourites({addToFavourites}) {
+  //function handleAddToFavorites() {
+  //   console.log("Item added to favorites!");
+  //   props.SetFavouritesList([...props.favouritesList, props.newFavouriteItem]);
+  // }
   return (
-    <button className="add-button"
-      onClick={() => {
-        AddToFavourites(props);
-      }}
-    >
-      Delete
+    <button className="add-button" onClick={addToFavourites}>
+      Add to My Locations List!
     </button>
   );
 }
