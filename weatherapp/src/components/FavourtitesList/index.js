@@ -9,11 +9,17 @@
 
 import ListItem from "./ListItem/index.js";
 
-function FavouritesList({ favourites, deleteFromFavourites }) {
+function FavouritesList({ favourites, deleteFromFavourites, addToFavourites }) {
     return (
         <div className="favourites-list">
             <h2>Favourite Places</h2>
-            <ListItem favourites={favourites} deleteFromFavourites={deleteFromFavourites} />
+            <ul>
+            <ListItem 
+                key = {favourites.id}
+                favourites = {favourites} 
+                addToFavourites = {addToFavourites}
+                deleteFromFavourites={deleteFromFavourites} />
+            </ul>
         </div>
     );
 }
