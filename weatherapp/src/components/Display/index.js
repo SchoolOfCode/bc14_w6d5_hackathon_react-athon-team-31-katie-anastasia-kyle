@@ -30,7 +30,7 @@ function WeatherDisplay({ city_name }) {
   } else {
     bgColorClass = "bg-cloudy";
   }
-
+  //
   return (
     <div className={bgColorClass}>
       <h1>
