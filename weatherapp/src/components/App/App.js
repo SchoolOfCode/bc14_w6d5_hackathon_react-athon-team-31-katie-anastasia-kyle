@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import WeatherDisplay from "../Display";
 import './App.css';
 import FavouritesList from '../FavourtitesList';
-import SearchBar from "../SearchBar/index.js"
+import SearchBar from "../SearchBar/index.js";
+import AddToFavourites from "../AddToFavourites/index.js";
 
 
 function App() {
@@ -21,7 +22,7 @@ function App() {
       <SearchBar />
       <WeatherDisplay />
       <div>
-        <FavouritesButton />
+        <AddToFavourites />
       </div>
       <FavouritesList favourites={favourites} deleteFromFavourites={deleteFromFavourites} />
     </div>

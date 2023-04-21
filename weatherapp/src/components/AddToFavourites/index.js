@@ -20,3 +20,5 @@ function AddToFavourites(newFavouriteItem) {
 
   return <button onClick={handleAddToFavorites}>Add to My Locations List!</button>;
 }
+
+export default AddToFavourites; 
