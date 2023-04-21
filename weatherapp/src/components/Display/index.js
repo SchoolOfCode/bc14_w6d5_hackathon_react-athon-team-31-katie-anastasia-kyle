@@ -15,11 +15,11 @@ function WeatherDisplay({ city_name }) {
   }, [city_name]);
 
   // Add an if statement to check cloud cover
-  let cloudCover;
+  let cloudCover = weatherNow.clouds;
   if (weatherNow.clouds < 50) {
     cloudCover = "Cloudy";
   } else {
-    cloudCover = "Sunny";
+    cloudCover = "Clear";
   }
 
   return (
