@@ -5,9 +5,15 @@
 //create an event handler that listens for when the button is clicked to add the item to the favourites list
 //at the moment have this console.log that it has been added so can see that the button is working before using hooks
 
-import React from "react";
+//PLAN for making state 
+//
 
-function AddToFavouritesButton() {
+import React from "react";
+import {useState} from "react";
+const [favouritesList, SetFavouritesList] = useState ([])
+
+function AddToFavourites(newFavouriteItem) {
+ 
   function handleAddToFavorites() {
     console.log("Item added to favorites!");
   }
