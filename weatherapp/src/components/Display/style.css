@@ -1,3 +1,7 @@
+body {
+  font-size: x-large;
+}
+
 .weatherDisplay {
   display: flex;
   flex-direction: column;
@@ -32,13 +36,20 @@
   position: fixed;
 }
 
+h1 {
+  text-align: center;
+}
+h2 {
+  text-align: center;
+}
+h3 {
+  text-align: center;
+}
+
 .weatherStuff {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   text-align: center;
-}
-
-.weatherStuff > * {
-  margin-right: 34vw;
+  margin: 6px;
 }

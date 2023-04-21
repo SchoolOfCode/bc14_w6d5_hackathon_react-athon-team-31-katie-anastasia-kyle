@@ -47,5 +47,5 @@ function WeatherDisplay({ cityName }) {
     </div>
   );
 }
-
+//
 export default WeatherDisplay;
