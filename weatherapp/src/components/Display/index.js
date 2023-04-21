@@ -41,10 +41,11 @@ function WeatherDisplay({ city_name }) {
         <p>Humidity: {weatherNow.rh} %</p>
         <p>
           Wind speed: {""}
+          {/* ? and : are if and else statements */}
           {weatherNow.wind_spd ? weatherNow.wind_spd.toFixed(1) : "N/A"} mp/h
         </p>
         {/* make colours turn diffent colours according to the index from "low to "Very High */}
-        <p>UV index: {weatherNow.uv ? weatherNow.uv.toFixed() : "N/A"}</p>
+        <p>UV index: {weatherNow.uv ? weatherNow.uv.toFixed(1) : "N/A"}</p>
       </div>
     </div>
   );
