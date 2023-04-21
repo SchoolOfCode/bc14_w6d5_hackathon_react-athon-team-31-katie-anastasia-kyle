@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import "./style.css";
 
 function WeatherDisplay({ cityName }) {
   const [weatherNow, setWeatherNow] = useState({});
@@ -15,24 +16,32 @@ function WeatherDisplay({ cityName }) {
   }, [cityName]);
 
   // Add an if statement to check cloud cover
-  let cloudCover = weatherNow.clouds;
+
+  let cloudCover;
   if (weatherNow.clouds < 50) {
-    cloudCover = "Cloudy";
+    cloudCover = "Sunny";
   } else {
-    cloudCover = "Clear";
+    cloudCover = "Cloudy";
   }
 
+  let bgColorClass;
+  if (weatherNow.clouds < 50) {
+    bgColorClass = "bg-sunny";
+  } else {
+    bgColorClass = "bg-cloudy";
+  }
+  //
   return (
-    <div>
+    <div className={bgColorClass}>
       <h1>
         {weatherNow.city_name}, {weatherNow.country_code}
       </h1>
       <h2>{Math.floor(weatherNow.temp)} °C </h2>
       <h3>Chance of rain: {Math.floor(weatherNow.precip)} %</h3>
-      <div>
-        <p>Clouds: {cloudCover}</p>
+      <div className="weatherStuff">
+        <p>Clouds: {cloudCover} </p>
         <p>Humidity: {weatherNow.rh} %</p>
-        {/* {<p>Wind Speed: {weatherNow.wind_spd.toFixed(1)} km/h</p>} */}
+        {/* <p>Wind Speed: {weatherNow.wind_spd.toFixed(1)} km/h</p> */}
         <p>UV index: {weatherNow.uv}</p>
       </div>
     </div>
