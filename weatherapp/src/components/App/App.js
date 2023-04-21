@@ -1,5 +1,6 @@
-import './App.css';
 import React, { useState } from "react";
+import WeatherDisplay from "../Display";
+import './App.css';
 import FavouritesList from '../FavourtitesList';
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
 
   return (
     <div className="App">
+      <WeatherDisplay />
       <FavouritesList favourites={favourites} deleteFromFavourites={deleteFromFavourites} />
     </div>
   );
