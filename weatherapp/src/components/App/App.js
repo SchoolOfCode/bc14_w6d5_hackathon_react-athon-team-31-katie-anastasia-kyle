@@ -20,6 +20,9 @@ function App() {
     <div className="App">
       <SearchBar />
       <WeatherDisplay />
+      <div>
+        <FavouritesButton />
+      </div>
       <FavouritesList favourites={favourites} deleteFromFavourites={deleteFromFavourites} />
     </div>
   );
