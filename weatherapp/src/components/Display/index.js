@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import "./style.css";
+import AddToFavourites from "../AddToFavourites/index.js";
 
-function WeatherDisplay({ city_name }) {
-  const [weatherNow, setWeatherNow] = useState({});
+function WeatherDisplay({ city_name }, { addToFavourites }) {
+  const [weatherNow, setWeatherNow] = useState({}); 
 
   useEffect(() => {
     async function getWeather() {
@@ -13,7 +14,8 @@ function WeatherDisplay({ city_name }) {
       setWeatherNow(weatherData.data[0]);
     }
     getWeather(weatherNow);
-  }, [city_name]);
+  }, [city_name]); // The useEffect hook will run every time the city_name state changes
+  // The weatherNow state is updated by setting it to the weather data from the API
 
   let cloudCover;
   if (weatherNow.clouds < 50) {
@@ -31,9 +33,12 @@ function WeatherDisplay({ city_name }) {
   //
   return (
     <div className={bgColorClass}>
+      <div className="location-display">
       <h1>
         {weatherNow.city_name} {weatherNow.country_code}
       </h1>
+      <AddToFavourites addToFavourites={addToFavourites} />
+      </div>
       <h2>{Math.floor(weatherNow.temp)} °C </h2>
       <h3>Chance of rain: {Math.floor(weatherNow.precip)} %</h3>
       <div className="weatherStuff">

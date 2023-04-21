@@ -12,7 +12,7 @@ import ListItem from "./ListItem/index.js";
 function FavouritesList({ favourites, deleteFromFavourites, addToFavourites }) {
     return (
         <div className="favourites-list">
-            <h2>Favourite Places</h2>
+            <h2>Favourite Locations</h2>
             <ul>
             <ListItem 
                 key = {favourites.id}
