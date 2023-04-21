@@ -1,23 +1,21 @@
-import logo from './logo.svg';
 import './App.css';
+import React, { useState } from "react";
+import FavouritesList from '../FavourtitesList';
 
 function App() {
+
+  const [favourites, setFavourites] = useState([]); // The favourites state will be passed as props to the ListItem component so that the ListItem component will know which items to display in the favourites list
+
+  function deleteFromFavourites(id) { // This function will be called when the user clicks the delete button
+    // const newFavourites = favourites.filter((favourite) => favourite.id !== id); // This filters the favourites state and when the id of the item in the favourites state is not equal to the id of the item that the user wants to delete then the item will be added to the newFavourites state
+    // setFavourites(newFavourites); // The favourites state will be updated to the newFavourites state
+    setFavourites([...favourites.slice(0, id), ...favourites.slice(id + 1)]); // This will remove the item from the favourites state that the user wants to delete and update the favourites state
+  }
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <FavouritesList favourites={favourites} deleteFromFavourites={deleteFromFavourites} />
     </div>
   );
 }
