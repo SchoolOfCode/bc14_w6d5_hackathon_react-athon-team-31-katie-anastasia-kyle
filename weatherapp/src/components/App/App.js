@@ -7,11 +7,12 @@ import AddToFavourites from "../AddToFavourites/index.js";
 
 function App() {
   const [favourites, setFavourites] = useState([]); // The favourites state will be passed as props to the ListItem component so that the ListItem component will know which items to display in the favourites list
-  
+
   const [cityName, setCityName] = useState("");
 
   function handleInput(event) {
-      setCityName(event.target.value);
+    const cityName = event.target.value;
+    setCityName(cityName);
   }
 
   function addToFavourites(favourite) {
@@ -28,7 +29,7 @@ function App() {
   return (
     <div className="App">
       <SearchBar handleInput={handleInput} value={cityName} />
-      <WeatherDisplay cityName={cityName} />
+      <WeatherDisplay city_name={cityName} />
       <AddToFavourites addToFavourites={addToFavourites} />
       <FavouritesList
         favourites={favourites}

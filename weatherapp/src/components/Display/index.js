@@ -1,19 +1,20 @@
 import { useEffect, useState } from "react";
 import "./style.css";
 
-function WeatherDisplay({ cityName }) {
+function WeatherDisplay({ city_name }) {
   const [weatherNow, setWeatherNow] = useState({});
 
   useEffect(() => {
-    async function getWeather({cityName}) {
+    async function getWeather() {
       const response = await fetch(
-        `http://api.weatherbit.io/v2.0/current?city=${cityName}&key=ffc9d5a9b44b42e88249b54818508ef8`
+        `http://api.weatherbit.io/v2.0/current?city=${city_name}&key=ffc9d5a9b44b42e88249b54818508ef8`
       );
       const weatherData = await response.json();
       setWeatherNow(weatherData.data[0]);
+      console.log(weatherData.data);
     }
-    getWeather();
-  }, [cityName]);
+    getWeather(weatherNow);
+  }, [city_name]);
 
   // Add an if statement to check cloud cover
 
@@ -34,15 +35,18 @@ function WeatherDisplay({ cityName }) {
   return (
     <div className={bgColorClass}>
       <h1>
-        {weatherNow.city_name}, {weatherNow.country_code}
+        {weatherNow.city_name} {weatherNow.country_code}
       </h1>
       <h2>{Math.floor(weatherNow.temp)} °C </h2>
       <h3>Chance of rain: {Math.floor(weatherNow.precip)} %</h3>
       <div className="weatherStuff">
         <p>Clouds: {cloudCover} </p>
         <p>Humidity: {weatherNow.rh} %</p>
-        {/* <p>Wind Speed: {weatherNow.wind_spd.toFixed(1)} km/h</p> */}
-        <p>UV index: {weatherNow.uv}</p>
+        <p>
+          Wind speed:
+          {weatherNow.wind_spd ? weatherNow.wind_spd.toFixed(1) : "N/A"}
+        </p>
+        <p>UV index: {weatherNow.uv ? weatherNow.uv.toFixed(1) : "N/A"}</p>
       </div>
     </div>
   );
