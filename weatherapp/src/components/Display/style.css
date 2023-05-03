@@ -1,0 +1,55 @@
+body {
+  font-size: x-large;
+}
+
+.weatherDisplay {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  background-color: #f5f5f5;
+  transition: background-color 0.5s ease-in-out;
+}
+
+.bg-sunny {
+  background-image: url("/src/assets/vecteezy_sunny-background-blue-sky-with-white-clouds-and-sun_.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+}
+
+.bg-cloudy {
+  background-image: url("/src/assets/vita-leonis-ZfRMc1_RUuA-unsplash.jpg");
+  -webkit-mask-image: url("/src/assets/vita-leonis-ZfRMc1_RUuA-unsplash.jpg");
+  mask-image: url("/src/assets/vita-leonis-ZfRMc1_RUuA-unsplash.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+}
+
+h1 {
+  text-align: center;
+}
+h2 {
+  text-align: center;
+}
+h3 {
+  text-align: center;
+}
+
+.weatherStuff {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  text-align: center;
+  margin: 6px;
+}
